@@ -8,8 +8,7 @@ meson-gse contains various files needed when using meson for building
 Gnome Shell extensions.
 
 This repository is supposed to be included in the `meson-gse`
-top-level directory of your extension (with git-subtree and/or
-git-submodule).
+top-level directory of your extension (with git-submodule).
 
 ## Gnome Shell Extensions using meson-gse
 
@@ -57,15 +56,8 @@ meson-gse expects your project to have a certain layout:
 In your extension's top-level directory, run:
 
 ```shell
-git subtree add -P meson-gse -m "Pull from meson-gse as a subtree." git@github.com:F-i-f/meson-gse.git master
-```
-
-As a convenience, when pulling update from the project, two commands
-automate pushing and pulling:
-
-```shell
-meson-gse/git-subtree-pull
-meson-gse/git-subtree-push
+git submodule init
+git submodule add https://github.com/F-i-f/meson-gse
 ```
 
 ### Create required files
@@ -207,7 +199,7 @@ are surrounded with `@` signs, like in `@variable@`.
 
 ```shell
 meson-gse/meson-gse
-meson build
+meson setup build
 ninja -C build test          # Checks syntax of JavaScript files
 ninja -C build install       # Install to $HOME/.local/share/gnome-shell/extensions
 ninja -C build extension.zip # Builds the extension in build/extension.zip
@@ -229,21 +221,17 @@ is _example.com_.  If your file layout is:
 - `src/extension.js`
 
    ```javascript
-   const Extension = class Extension {
-	 Name: 'Hello, world!',
+   import {Extension, gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
 
-	 enable: function() {
+   export default class MyExtension extends Extension {
+	 enable() {
 	   log('Hello world enabled');
-	 },
+	 }
 
-	 disable: function() {
+	 disable() {
 	   log('Hello world disabled');
 	 }
    };
-
-   function init() {
-	 return new Extension();
-   }
    ```
 
 - `src/metadata.json.in`
@@ -253,7 +241,8 @@ is _example.com_.  If your file layout is:
 	 "description": "Says: hello, world.",
 	 "name": "Hello, world!",
 	 "shell-version": [
-	   "3.30"
+	   "45",
+	   "46"
 	 ],
 	 "gettext-domain": "@gettext_domain@",
 	 "settings-schema": "org.gnome.shell.extensions.hello-world",
@@ -273,28 +262,25 @@ git init
 echo "gse_project({simple}, {example.com}, {1})" > meson-gse.build
 mkdir src
 cat <<-'EOD' > src/extension.js
-	const Extension = class Extension {
-	  Name: 'Hello, world!',
+   import {Extension, gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
 
-	  enable: function() {
-		log('Hello world enabled');
-	  },
+   export default class MyExtension extends Extension {
+	 enable() {
+	   log('Hello world enabled');
+	 }
 
-	  disable: function() {
-		log('Hello world disabled');
-	  }
-	});
-
-	function init() {
-	  return new Extension();
-	}
+	 disable() {
+	   log('Hello world disabled');
+	 }
+   };
 EOD
 cat <<-'EOD' > src/metadata.json.in
 	{
 	  "description": "Says: hello, world.",
 	  "name": "Hello, world!",
 	  "shell-version": [
-		"3.30"
+		"45",
+		"46"
 	  ],
 	  "gettext-domain": "@gettext_domain@",
 	  "settings-schema": "org.gnome.shell.extensions.hello-world",
@@ -304,11 +290,12 @@ cat <<-'EOD' > src/metadata.json.in
 	  "vcs_revision": "@VCS_TAG@"
 	}
 EOD
+git submodule init
+git submodule add https://github.com/F-i-f/meson-gse
 git add meson-gse.build src
 git commit -m "Initial checkin."
-git subtree add -P meson-gse -m "Pull from meson-gse as a subtree." git@github.com:F-i-f/meson-gse.git master
 meson-gse/meson-gse
-meson build
+meson setup build
 ninja -C build test install
 ```
 
