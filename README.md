@@ -314,13 +314,22 @@ Refer to the [projects using meson-gse](#gnome-shell-extensions-using-meson-gse)
 
 ## Recent changes
 
+## 2024-05-25
+
+- Use `git submodule` instead of subtree.
+- Updated documentation.
+
+## 2024-01-10
+
+- Gnome Shell 45 and later compatibility.
+
 ## 2022-12-22
 
-- Support js102 for javascript validation.
+- Support js102 for JavaScript validation.
 
 ### 2022-05-20
 
-- Support js91 for javascript validation.
+- Support js91 for JavaScript validation.
 - Support Meson 0.61 and later.
 - Fix issue in git-subtree-push.
 
@@ -340,6 +349,6 @@ Refer to the [projects using meson-gse](#gnome-shell-extensions-using-meson-gse)
   <scampa.giovanni@gmail.com>.
 
 <!--  LocalWords:  gse subtree submodule GSettings CSS metadata uuid
-LocalWords:  libs schemas dbus DBus gettext M4 Florian Müllner
-LocalWords:  Campagna
+LocalWords:  libs schemas dbus DBus gettext M4 Florian Müllner js102
+LocalWords:  Campagna js91
 -->
