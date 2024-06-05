@@ -1,0 +1,20 @@
+{
+    "name": "meson-gse",
+    "type": "module",
+    "private": true,
+    "author": "Philippe Troin <F-i-f on GitHub>",
+    "license": "GPL-3.0-or-later",
+    "bugs": {
+	"url": "https://github.com/F-i-f/meson-gse/issues"
+    },
+    "homepage": "https://github.com/F-i-f/meson-gse",
+    "sideEffects": false,
+    "scripts": {
+	"eslint": "cd .. && eslint",
+	"prettier": "prettier --write"
+    },
+    "devDependencies": {
+	"eslint": "^9.2.0",
+	"prettier": "^3.2.5"
+    }
+}

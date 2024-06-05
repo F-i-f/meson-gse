@@ -200,9 +200,12 @@ are surrounded with `@` signs, like in `@variable@`.
 ```shell
 meson-gse/meson-gse
 meson setup build
-ninja -C build test          # Checks syntax of JavaScript files
+ninja -C build test          # Checks syntax of JavaScript files (runs eslint)
+ninja -C build prettier      # Maintenance only: run prettier on JavaScript files.
 ninja -C build install       # Install to $HOME/.local/share/gnome-shell/extensions
 ninja -C build extension.zip # Builds the extension in build/extension.zip
+ninja -C build clean         # Default clean target, restart build from scratch
+ninja -C build cleaner       # Removes backup files, npm_modules. Does not imply 'clean'.
 ```
 
 ## Examples
@@ -307,12 +310,22 @@ Refer to the [projects using meson-gse](#gnome-shell-extensions-using-meson-gse)
 
 ## Requirements
 
-- [Meson](https://mesonbuild.com/) 0.50.0 or later.
+- [Meson](https://mesonbuild.com/) 1.4.0 or later.
 - [GNU M4](https://www.gnu.org/software/m4/m4.html)
 
   M4 is needed to generate `meson.build` from `meson-gse.build`.
 
 ## Recent changes
+
+## 2024-06-05
+
+- Replace [Mozilla SpiderMonkey](https://spidermonkey.dev/) by
+  [eslint](https://eslint.org/) for linting.
+- Add [prettier](https://prettier.io/).
+- Add `cleaner` ninja target (removes `*~` backup and npm's
+  `node_modules`).
+- Bump Meson requirement to 1.4.0 for files'`full_path()` method and
+  get rid of a meson warning.
 
 ## 2024-05-25
 
@@ -350,5 +363,5 @@ Refer to the [projects using meson-gse](#gnome-shell-extensions-using-meson-gse)
 
 <!--  LocalWords:  gse subtree submodule GSettings CSS metadata uuid
 LocalWords:  libs schemas dbus DBus gettext M4 Florian Müllner js102
-LocalWords:  Campagna js91
+LocalWords:  Campagna js91 SpiderMonkey eslint npm's
 -->
