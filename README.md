@@ -317,7 +317,7 @@ Refer to the [projects using meson-gse](#gnome-shell-extensions-using-meson-gse)
 
 ## Recent changes
 
-## 2024-06-05
+### 2024-06-05
 
 - Replace [Mozilla SpiderMonkey](https://spidermonkey.dev/) by
   [eslint](https://eslint.org/) for linting.
@@ -327,16 +327,16 @@ Refer to the [projects using meson-gse](#gnome-shell-extensions-using-meson-gse)
 - Bump Meson requirement to 1.4.0 for files'`full_path()` method and
   get rid of a meson warning.
 
-## 2024-05-25
+### 2024-05-25
 
 - Use `git submodule` instead of subtree.
 - Updated documentation.
 
-## 2024-01-10
+### 2024-01-10
 
 - Gnome Shell 45 and later compatibility.
 
-## 2022-12-22
+### 2022-12-22
 
 - Support js102 for JavaScript validation.
 
