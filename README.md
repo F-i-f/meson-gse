@@ -269,11 +269,11 @@ cat <<-'EOD' > src/extension.js
 
    export default class MyExtension extends Extension {
 	 enable() {
-	   log('Hello world enabled');
+	   console.log('Hello world enabled');
 	 }
 
 	 disable() {
-	   log('Hello world disabled');
+	   console.log('Hello world disabled');
 	 }
    };
 EOD
