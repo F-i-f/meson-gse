@@ -156,7 +156,7 @@ if gse_npm_command_obj.found()
 					 command: ['sh', '-c', 'pushd "@0@" && "@1@" --fund false install && popd && touch npm-install'.format(gse_meson_gse_dir, gse_npm_command_obj.full_path())],
 					 output: ['npm-install'])
 
-  foreach gse_source : gse_sources
+  foreach gse_source : gse_sources + gse_libs
     test('Linting @0@...'.format(gse_source.full_path()),
 	 gse_npm_command_obj,
 	 args: ['run-script', '--', 'eslint', '--config', join_paths(gse_meson_gse_dir, 'eslint.config.js'), gse_source],
@@ -165,7 +165,7 @@ if gse_npm_command_obj.found()
   endforeach
 
   gse_npm_prettier_targets = []
-  foreach gse_source : gse_sources
+  foreach gse_source : gse_sources + gse_libs
     gse_npm_prettier_targets += custom_target(build_always_stale: true,
 					      build_by_default: false,
 					      install: false,
