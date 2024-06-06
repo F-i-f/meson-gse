@@ -164,19 +164,19 @@ if gse_npm_command_obj.found()
 	 workdir: gse_meson_gse_dir)
   endforeach
 
-  gse_npm_pretty_targets = []
+  gse_npm_prettier_targets = []
   foreach gse_source : gse_sources
-    gse_npm_pretty_targets += custom_target(build_always_stale: true,
-					    build_by_default: false,
-					    install: false,
-					    depends: gse_npm_install_target,
-					    command: ['sh', '-c', 'cd "@0@" && "@1@" run-script -- prettier --config "@2@" "@3@"'. format(gse_meson_gse_dir, gse_npm_command_obj.full_path(), join_paths(gse_meson_gse_dir, 'prettier.config.js'), gse_source.full_path())],
-					    output: 'prettier-@0@'.format(gse_source.full_path().replace('/', '_')))
+    gse_npm_prettier_targets += custom_target(build_always_stale: true,
+					      build_by_default: false,
+					      install: false,
+					      depends: gse_npm_install_target,
+					      command: ['sh', '-c', 'cd "@0@" && "@1@" run-script -- prettier --config "@2@" "@3@"'. format(gse_meson_gse_dir, gse_npm_command_obj.full_path(), join_paths(gse_meson_gse_dir, 'prettier.config.js'), gse_source.full_path())],
+					      output: 'prettier-@0@'.format(gse_source.full_path().replace('/', '_')))
   endforeach
   gse_npm_install_target = custom_target(build_always_stale: true,
 					 build_by_default: false,
 					 install: false,
-					 depends: gse_npm_pretty_targets,
+					 depends: gse_npm_prettier_targets,
 					 command: ['sh', '-c', 'exit 0'],
 					 output: ['prettier'])
   gse_cleaner_targets += custom_target(build_always_stale: true,
