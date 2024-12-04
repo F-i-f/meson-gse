@@ -317,6 +317,10 @@ Refer to the [projects using meson-gse](#gnome-shell-extensions-using-meson-gse)
 
 ## Recent changes
 
+### 2024-12-04
+
+- Provide a "Get it on Gnome Extensions" icon/badge.
+
 ### 2024-06-05
 
 - Replace [Mozilla SpiderMonkey](https://spidermonkey.dev/) by
