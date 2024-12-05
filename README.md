@@ -320,6 +320,8 @@ Refer to the [projects using meson-gse](#gnome-shell-extensions-using-meson-gse)
 ### 2024-12-04
 
 - Provide a "Get it on Gnome Extensions" icon/badge.
+- Update NPM modules.
+- Update ESLint configuration.
 
 ### 2024-06-05
 
