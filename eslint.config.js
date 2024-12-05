@@ -27,6 +27,12 @@ export default [
                 setInterval: 'readonly',
                 clearTimeout: 'readonly',
                 clearInterval: 'readonly',
+                // GNOME Shell Only
+                global: 'readonly',
+                _: 'readonly',
+                C_: 'readonly',
+                N_: 'readonly',
+                ngettext: 'readonly',
             },
             parserOptions: {
                 ecmaVersion: 2022,
