@@ -317,6 +317,11 @@ Refer to the [projects using meson-gse](#gnome-shell-extensions-using-meson-gse)
 
 ## Recent changes
 
+### 2025-08-30
+
+- Update NPM modules.
+- Change prettier configuration from js to yaml.
+
 ### 2024-12-04
 
 - Provide a "Get it on Gnome Extensions" icon/badge.
