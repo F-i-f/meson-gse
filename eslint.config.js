@@ -30,6 +30,13 @@ export default defineConfig([
                     esm: true,
                 },
             }],
+            // Pulled from node_modules/eslint-config-gnome/src/configs/gnome-recommended.js and added caughtErrorsIgnorePattern rule
+            'no-unused-vars': ['error', {
+                // Vars use a suffix _ instead of a prefix because of file-scope private vars
+                varsIgnorePattern: '(^unused|_$)',
+                argsIgnorePattern: '^(unused|_)',
+                caughtErrorsIgnorePattern: '^(unused|_)',
+            }],
         },
         languageOptions: {
             globals: {
