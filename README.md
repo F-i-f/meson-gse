@@ -313,6 +313,13 @@ Refer to the [projects using meson-gse](#gnome-shell-extensions-using-meson-gse)
 
 ## Recent changes
 
+### 2026-02-19
+
+- Update NPM modules.
+- Update ESLint rules from latest Gnome Shell (50).
+- Drop lib/convenience.js. It's been unnecessary since Gnome Shell 3.32.
+- Fix ESLint errors in lib/logger.js.
+
 ### 2025-08-30
 
 - Update NPM modules.
