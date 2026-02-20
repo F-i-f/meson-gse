@@ -112,10 +112,6 @@ gse_project({extension name}, {extension uuid domain}, {extension version}, {gse
   `gse_sources` JavaScript files will be checked for syntax when
   running `ninja check` while the `gse_libs` JavaScript files won't.
 
-  The very commonly used `convenience.js` file is included in the
-  meson-gse distribution and its path is available in the meson
-  variable `gse_lib_convenience`.
-
   A very [basic logging
   class](https://github.com/F-i-f/meson-gse/blob/master/lib/logger.js)
   is also provided, and its path is available in the `gse_lib_logger`
@@ -124,7 +120,7 @@ gse_project({extension name}, {extension uuid domain}, {extension version}, {gse
   **Example:**
 
   ```meson
-  gse_libs += gse_lib_convenience
+  gse_libs += gse_lib_logger
   gse_libs += files('lib/other-library.js')
   ```
 
@@ -369,8 +365,8 @@ Refer to the [projects using meson-gse](#gnome-shell-extensions-using-meson-gse)
   for writing the meson build files.  Thanks to [Florian
   Müllner](https://gitlab.gnome.org/fmuellner).
 
-- meson-gse includes the `convenience.js` file from Giovanni Campagna
-  <scampa.giovanni@gmail.com>.
+- meson-gse used to include the `convenience.js` file from Giovanni
+  Campagna <scampa.giovanni@gmail.com>.
 
 <!--  LocalWords:  gse subtree submodule GSettings CSS metadata uuid
 LocalWords:  libs schemas dbus DBus gettext M4 Florian Müllner js102

@@ -60,7 +60,6 @@ project('$1',
 gnome = import('gnome')
 i18n  = import('i18n')
 
-gse_lib_convenience = files('meson-gse/lib/convenience.js')
 gse_lib_logger      = files('meson-gse/lib/logger.js')
 
 gse_gettext_domain  = meson.project_name()
