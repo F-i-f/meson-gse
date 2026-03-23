@@ -313,6 +313,10 @@ Refer to the [projects using meson-gse](#gnome-shell-extensions-using-meson-gse)
 
 ## Recent changes
 
+### 2026-03-22
+
+- Update NPM modules.
+
 ### 2026-02-19
 
 - Update NPM modules.
